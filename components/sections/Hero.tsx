@@ -67,7 +67,7 @@ export default function Hero() {
   return (
     <section
       id="topo"
-      className="relative min-h-screen flex items-center bg-beige overflow-hidden pt-20"
+      className="relative bg-beige overflow-hidden md:min-h-screen md:flex md:items-center"
     >
       {/* Gradiente de fundo */}
       <div
@@ -78,130 +78,209 @@ export default function Hero() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-8 pt-24 md:pt-16 md:py-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
-        {/* Conteúdo textual */}
-        <div className="flex flex-col gap-6 md:gap-8 order-2 md:order-1">
-          {/* Eyebrow */}
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.1}
-            className="text-xs tracking-[0.4em] uppercase text-gold font-light"
-          >
-            Fitoterapia · Autocuidado · Ritual Natural
-          </motion.p>
+      <div className="max-w-6xl mx-auto px-6 w-full">
 
-          {/* Título principal */}
-          <motion.h1
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.25}
-            className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-botanical leading-[0.95] tracking-tight"
-          >
-            Ritual.
-            <br />
-            <span className="italic text-sage">Natureza.</span>
-            <br />
-            Presença.
-          </motion.h1>
-
-          {/* Linha dourada */}
+        {/* ── MOBILE: logo centralizada em cima, texto embaixo ── */}
+        <div className="md:hidden flex flex-col items-center pt-20 pb-6 gap-5">
+          {/* Logo */}
           <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.4}
-          >
-            <hr className="gold-rule w-24" />
-          </motion.div>
-
-          {/* Subtexto */}
-          <motion.p
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.5}
-            className="text-ink-muted text-base leading-relaxed font-light max-w-md"
-          >
-            Preparos artesanais de ervas, banhos botânicos e produtos naturais
-            para momentos de cuidado consciente e reconexão com a natureza.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            custom={0.65}
-            className="flex flex-wrap gap-4"
-          >
-            <a
-              href="#produtos"
-              className="bg-botanical text-beige text-xs tracking-[0.2em] uppercase px-7 py-3.5 hover:bg-botanical-light transition-colors font-light inline-block"
-            >
-              Conhecer os produtos
-            </a>
-            <a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-botanical text-botanical text-xs tracking-[0.2em] uppercase px-7 py-3.5 hover:bg-botanical hover:text-beige transition-colors font-light inline-block"
-            >
-              Falar no WhatsApp
-            </a>
-          </motion.div>
-        </div>
-
-        {/* Logo hero */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="relative order-1 md:order-2 flex items-center justify-center mb-4 md:mb-0"
-        >
-          {/* Halo de luz atrás da logo */}
-          <div
-            className="absolute rounded-full pointer-events-none"
-            style={{
-              width: "min(480px, 95vw)",
-              height: "min(480px, 95vw)",
-              background:
-                "radial-gradient(circle, rgba(201,169,110,0.10) 0%, rgba(201,184,212,0.06) 45%, transparent 70%)",
-            }}
-          />
-
-          {/* Logo principal */}
-          <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative w-[min(260px,65vw)] h-[min(260px,65vw)] md:w-[340px] md:h-[340px]"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative w-48 h-48"
           >
             <Image
               src="/logo.jpeg"
-              alt="Botica Raizeira — Árvore da Vida"
+              alt="Botica Raizeira"
               fill
               className="object-contain drop-shadow-lg rounded-full"
               priority
             />
           </motion.div>
 
-          {/* Tag flutuante — abaixo da logo, oculta em mobile para não sobrepor texto */}
+          {/* Texto */}
+          <div className="flex flex-col gap-4 w-full">
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.1}
+              className="text-[10px] tracking-[0.35em] uppercase text-gold font-light text-center"
+            >
+              Fitoterapia · Autocuidado · Ritual Natural
+            </motion.p>
+
+            <motion.h1
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.25}
+              className="font-display text-5xl font-light text-botanical leading-[0.95] tracking-tight text-center"
+            >
+              Ritual.
+              <br />
+              <span className="italic text-sage">Natureza.</span>
+              <br />
+              Presença.
+            </motion.h1>
+
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex justify-center"
+            >
+              <hr className="gold-rule w-16" />
+            </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.5}
+              className="text-ink-muted text-sm leading-relaxed font-light text-center"
+            >
+              Preparos artesanais de ervas, banhos botânicos e produtos naturais
+              para momentos de cuidado consciente.
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.65}
+              className="flex gap-3 justify-center flex-wrap"
+            >
+              <a
+                href="#produtos"
+                className="bg-botanical text-beige text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-botanical-light transition-colors font-light"
+              >
+                Conhecer os produtos
+              </a>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-botanical text-botanical text-xs tracking-[0.2em] uppercase px-6 py-3 hover:bg-botanical hover:text-beige transition-colors font-light"
+              >
+                WhatsApp
+              </a>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* ── DESKTOP: grid 2 colunas ── */}
+        <div className="hidden md:grid md:grid-cols-2 gap-12 items-center py-16">
+          {/* Conteúdo textual */}
+          <div className="flex flex-col gap-8">
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.1}
+              className="text-xs tracking-[0.4em] uppercase text-gold font-light"
+            >
+              Fitoterapia · Autocuidado · Ritual Natural
+            </motion.p>
+
+            <motion.h1
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.25}
+              className="font-display text-7xl lg:text-8xl font-light text-botanical leading-[0.95] tracking-tight"
+            >
+              Ritual.
+              <br />
+              <span className="italic text-sage">Natureza.</span>
+              <br />
+              Presença.
+            </motion.h1>
+
+            <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={0.4}>
+              <hr className="gold-rule w-24" />
+            </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.5}
+              className="text-ink-muted text-base leading-relaxed font-light max-w-md"
+            >
+              Preparos artesanais de ervas, banhos botânicos e produtos naturais
+              para momentos de cuidado consciente e reconexão com a natureza.
+            </motion.p>
+
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              custom={0.65}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#produtos"
+                className="bg-botanical text-beige text-xs tracking-[0.2em] uppercase px-7 py-3.5 hover:bg-botanical-light transition-colors font-light inline-block"
+              >
+                Conhecer os produtos
+              </a>
+              <a
+                href={WA_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-botanical text-botanical text-xs tracking-[0.2em] uppercase px-7 py-3.5 hover:bg-botanical hover:text-beige transition-colors font-light inline-block"
+              >
+                Falar no WhatsApp
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Logo hero */}
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2 bg-warm-white border border-gold/30 px-5 py-3 shadow-sm whitespace-nowrap"
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative flex items-center justify-center"
           >
-            <p className="text-xs tracking-[0.2em] uppercase text-gold font-light text-center">
-              Preparo Artesanal
-            </p>
-            <p className="font-display text-botanical text-base font-light mt-0.5 text-center">
-              com intenção
-            </p>
+            <div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: "min(480px, 95vw)",
+                height: "min(480px, 95vw)",
+                background:
+                  "radial-gradient(circle, rgba(201,169,110,0.10) 0%, rgba(201,184,212,0.06) 45%, transparent 70%)",
+              }}
+            />
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="relative w-[340px] h-[340px]"
+            >
+              <Image
+                src="/logo.jpeg"
+                alt="Botica Raizeira — Árvore da Vida"
+                fill
+                className="object-contain drop-shadow-lg rounded-full"
+                priority
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.9, duration: 0.6 }}
+              className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-warm-white border border-gold/30 px-5 py-3 shadow-sm whitespace-nowrap"
+            >
+              <p className="text-xs tracking-[0.2em] uppercase text-gold font-light text-center">
+                Preparo Artesanal
+              </p>
+              <p className="font-display text-botanical text-base font-light mt-0.5 text-center">
+                com intenção
+              </p>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
+
       </div>
 
       {/* Seta scroll */}
