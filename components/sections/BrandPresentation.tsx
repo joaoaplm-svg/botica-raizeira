@@ -36,7 +36,7 @@ export default function BrandPresentation() {
   };
 
   return (
-    <section id="marca" className="py-24 md:py-32 bg-beige">
+    <section id="marca" className="py-16 md:py-32 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
         <div ref={ref} className="grid md:grid-cols-2 gap-16 items-center">
           {/* Imagem / placeholder visual */}
@@ -56,9 +56,9 @@ export default function BrandPresentation() {
               />
             </div>
 
-            {/* Canto decorativo externo */}
-            <div className="absolute -bottom-4 -right-4 w-24 h-24 border border-gold/30" />
-            <div className="absolute -top-4 -left-4 w-16 h-16 border border-gold/20" />
+            {/* Canto decorativo externo — oculto em mobile para evitar overflow horizontal */}
+            <div className="hidden sm:block absolute -bottom-4 -right-4 w-24 h-24 border border-gold/30" />
+            <div className="hidden sm:block absolute -top-4 -left-4 w-16 h-16 border border-gold/20" />
           </motion.div>
 
           {/* Conteúdo textual */}

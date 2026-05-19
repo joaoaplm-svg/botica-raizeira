@@ -13,7 +13,7 @@ export default function FeaturedProducts() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="produtos" className="py-24 md:py-32 section-alt">
+    <section id="produtos" className="py-16 md:py-32 section-alt">
       <div className="max-w-6xl mx-auto px-6">
         <div ref={ref} className="flex flex-col gap-16">
           {/* Cabeçalho */}
@@ -44,7 +44,7 @@ export default function FeaturedProducts() {
           </div>
 
           {/* Grid de produtos */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
             {featuredProducts.map((product, i) => (
               <motion.article
                 key={product.id}
@@ -55,7 +55,7 @@ export default function FeaturedProducts() {
               >
                 {/* Imagem do produto */}
                 <div
-                  className="aspect-[4/5] relative overflow-hidden"
+                  className="aspect-square md:aspect-[4/5] relative overflow-hidden"
                   style={{ background: product.image ? undefined : product.imagePlaceholder }}
                 >
                   {product.image ? (
@@ -83,8 +83,8 @@ export default function FeaturedProducts() {
                 </div>
 
                 {/* Conteúdo do card */}
-                <div className="flex flex-col gap-3 p-5 flex-1">
-                  <h3 className="font-display text-xl font-light text-botanical leading-tight">
+                <div className="flex flex-col gap-2 p-3 md:p-5 flex-1">
+                  <h3 className="font-display text-base md:text-xl font-light text-botanical leading-tight">
                     {product.name}
                   </h3>
 

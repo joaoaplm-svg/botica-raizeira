@@ -11,7 +11,7 @@ export default function Philosophy() {
     <section
       id="filosofia"
       ref={ref}
-      className="py-24 md:py-36 section-alt relative overflow-hidden"
+      className="py-16 md:py-36 section-alt relative overflow-hidden"
     >
       {/* Decoração de fundo — círculo sutil */}
       <div
@@ -55,7 +55,7 @@ export default function Philosophy() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.25 }}
-          className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-botanical leading-tight tracking-tight mb-10"
+          className="font-display text-3xl md:text-5xl lg:text-6xl font-light text-botanical leading-tight tracking-tight mb-10"
         >
           Acreditamos que cuidar de si
           <br />
@@ -97,7 +97,7 @@ export default function Philosophy() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.7 }}
-          className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto"
+          className="mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto"
         >
           {["Natureza", "Intenção", "Cuidado"].map((pilar) => (
             <div key={pilar} className="flex flex-col items-center gap-3">

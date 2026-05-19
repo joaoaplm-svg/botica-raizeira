@@ -78,9 +78,9 @@ export default function Hero() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center w-full">
+      <div className="max-w-6xl mx-auto px-6 py-8 pt-24 md:pt-16 md:py-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center w-full">
         {/* Conteúdo textual */}
-        <div className="flex flex-col gap-8 order-2 md:order-1">
+        <div className="flex flex-col gap-6 md:gap-8 order-2 md:order-1">
           {/* Eyebrow */}
           <motion.p
             variants={fadeUp}
@@ -98,7 +98,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             custom={0.25}
-            className="font-display text-6xl md:text-7xl lg:text-8xl font-light text-botanical leading-[0.95] tracking-tight"
+            className="font-display text-5xl md:text-7xl lg:text-8xl font-light text-botanical leading-[0.95] tracking-tight"
           >
             Ritual.
             <br />
@@ -159,7 +159,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative order-1 md:order-2 flex items-center justify-center"
+          className="relative order-1 md:order-2 flex items-center justify-center mb-4 md:mb-0"
         >
           {/* Halo de luz atrás da logo */}
           <div
@@ -176,8 +176,7 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-            className="relative"
-            style={{ width: "min(340px, 80vw)", height: "min(340px, 80vw)" }}
+            className="relative w-[min(260px,65vw)] h-[min(260px,65vw)] md:w-[340px] md:h-[340px]"
           >
             <Image
               src="/logo.jpeg"
@@ -188,12 +187,12 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* Tag flutuante — abaixo da logo */}
+          {/* Tag flutuante — abaixo da logo, oculta em mobile para não sobrepor texto */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
-            className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-warm-white border border-gold/30 px-5 py-3 shadow-sm whitespace-nowrap"
+            className="hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2 bg-warm-white border border-gold/30 px-5 py-3 shadow-sm whitespace-nowrap"
           >
             <p className="text-xs tracking-[0.2em] uppercase text-gold font-light text-center">
               Preparo Artesanal
@@ -210,7 +209,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2"
       >
         <span className="text-xs tracking-[0.3em] uppercase text-ink-light font-light">
           Explorar

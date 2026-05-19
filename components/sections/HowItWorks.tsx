@@ -33,7 +33,7 @@ export default function HowItWorks() {
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="py-24 md:py-32 bg-beige">
+    <section className="py-16 md:py-32 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
         <div ref={ref} className="flex flex-col gap-16">
           {/* Cabeçalho */}

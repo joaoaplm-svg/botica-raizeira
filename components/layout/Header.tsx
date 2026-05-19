@@ -41,8 +41,17 @@ export default function Header() {
         )}
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
-          {/* Logo */}
-          <a href="#topo" className="group">
+          {/* Botão menu mobile — esquerda */}
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="md:hidden text-botanical p-1 order-1"
+            aria-label="Abrir menu"
+          >
+            <Menu size={22} />
+          </button>
+
+          {/* Logo — direita no mobile, esquerda no desktop */}
+          <a href="#topo" className="group order-2 md:order-1">
             <Image
               src="/logo.jpeg"
               alt="Botica Raizeira"
@@ -54,7 +63,7 @@ export default function Header() {
           </a>
 
           {/* Navegação desktop */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8 order-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -71,19 +80,10 @@ export default function Header() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-2 bg-botanical text-beige text-xs tracking-[0.15em] uppercase px-5 py-2.5 hover:bg-botanical-light transition-colors font-light"
+            className="hidden md:flex items-center gap-2 bg-botanical text-beige text-xs tracking-[0.15em] uppercase px-5 py-2.5 hover:bg-botanical-light transition-colors font-light order-3"
           >
             Fale pelo WhatsApp
           </a>
-
-          {/* Botão menu mobile */}
-          <button
-            onClick={() => setMenuOpen(true)}
-            className="md:hidden text-botanical p-1"
-            aria-label="Abrir menu"
-          >
-            <Menu size={22} />
-          </button>
         </div>
       </motion.header>
 
@@ -99,11 +99,11 @@ export default function Header() {
               onClick={() => setMenuOpen(false)}
             />
             <motion.div
-              initial={{ x: "100%" }}
+              initial={{ x: "-100%" }}
               animate={{ x: 0 }}
-              exit={{ x: "100%" }}
+              exit={{ x: "-100%" }}
               transition={{ type: "tween", duration: 0.35 }}
-              className="fixed top-0 right-0 bottom-0 w-72 bg-beige z-50 flex flex-col p-8"
+              className="fixed top-0 left-0 bottom-0 w-72 bg-beige z-50 flex flex-col p-8"
             >
               <div className="flex items-center justify-between mb-12">
                 <Image
@@ -127,7 +127,7 @@ export default function Header() {
                   <motion.a
                     key={link.href}
                     href={link.href}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: i * 0.07 + 0.1 }}
                     onClick={() => setMenuOpen(false)}
