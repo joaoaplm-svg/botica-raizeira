@@ -36,17 +36,17 @@ export default function BrandPresentation() {
   };
 
   return (
-    <section id="marca" className="py-16 md:py-32 bg-beige">
+    <section id="marca" className="py-10 md:py-32 bg-beige">
       <div className="max-w-6xl mx-auto px-6">
-        <div ref={ref} className="grid md:grid-cols-2 gap-16 items-center">
+        <div ref={ref} className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Imagem / placeholder visual */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative order-2 md:order-1"
           >
-            <div className="aspect-[3/4] relative overflow-hidden">
+            <div className="aspect-video md:aspect-[3/4] relative overflow-hidden">
               <Image
                 src="/images/brand/foto-da-marca.png"
                 alt="Ervas e preparos artesanais da Botica Raizeira"
@@ -62,7 +62,7 @@ export default function BrandPresentation() {
           </motion.div>
 
           {/* Conteúdo textual */}
-          <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-7 order-1 md:order-2 items-center md:items-start text-center md:text-left">
             <motion.p
               custom={0}
               variants={variants}
